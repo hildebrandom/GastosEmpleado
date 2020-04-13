@@ -1,6 +1,7 @@
 ﻿
 using GastosEmpleados.web.Data;
 using GastosEmpleados.web.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GastosEmpleados.web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EmployeesController : Controller
     {
         private readonly DataContext _context;

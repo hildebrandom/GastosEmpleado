@@ -1,6 +1,8 @@
 ﻿using GastosEmpleados.web.Data.Entities;
+using GastosEmpleados.web.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+
 
 
 namespace GastosEmpleados.web.Helpers
@@ -16,5 +18,10 @@ namespace GastosEmpleados.web.Helpers
         Task AddUserToRoleAsync(UserEntity user, string roleName);
 
         Task<bool> IsUserInRoleAsync(UserEntity user, string roleName);
+
+        Task<SignInResult> LoginAsync(LoginViewModel model);
+
+        Task LogoutAsync();
+
     }
 }

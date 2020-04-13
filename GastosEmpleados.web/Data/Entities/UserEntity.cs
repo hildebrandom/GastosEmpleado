@@ -1,5 +1,4 @@
 ﻿using GastosEmpleado.Common.Enums;
-using GastosEmpleado.Web.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

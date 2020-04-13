@@ -1,5 +1,4 @@
 ﻿using GastosEmpleado.Common.Enums;
-using GastosEmpleado.Web.Data.Entities;
 using GastosEmpleados.web;
 using GastosEmpleados.web.Data;
 using GastosEmpleados.web.Data.Entities;

@@ -1,5 +1,4 @@
-﻿using GastosEmpleado.Web.Data.Entities;
-using GastosEmpleados.web.Data.Entities;
+﻿using GastosEmpleados.web.Data.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
