@@ -1,10 +1,9 @@
-﻿@model IEnumerable<GastosEmpleados.web.Data.Entities.EmpleadoEntity>
-
+﻿@model IEnumerable<GastosEmpleados.web.Data.Entities.EmployeesEntity>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Employees</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,7 +12,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @Html.DisplayNameFor(model => model.Document)
             </th>
             <th></th>
         </tr>
@@ -22,11 +21,11 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                @Html.DisplayFor(modelItem => item.Document)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

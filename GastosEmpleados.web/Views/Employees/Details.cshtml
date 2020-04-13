@@ -1,4 +1,4 @@
-﻿@model GastosEmpleados.web.Data.Entities.EmpleadoEntity
+﻿@model GastosEmpleados.web.Data.Entities.EmployeesEntity
 
 @{
     ViewData["Title"] = "Details";
@@ -7,14 +7,14 @@
 <h2>Details</h2>
 
 <div>
-    <h4>EmpleadoEntity</h4>
+    <h4>Employees</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.Document)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Nombre)
+            @Html.DisplayFor(model => model.Document)
         </dd>
     </dl>
 </div>
