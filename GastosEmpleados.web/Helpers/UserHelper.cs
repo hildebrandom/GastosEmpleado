@@ -48,7 +48,8 @@ namespace GastosEmpleados.web.Helpers
                 });
             }
         }
-
+                    
+               
         public async Task<UserEntity> GetUserByEmailAsync(string email)
         {
             return await _userManager.FindByEmailAsync(email);

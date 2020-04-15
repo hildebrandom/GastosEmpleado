@@ -22,6 +22,6 @@ namespace GastosEmpleados.web.Helpers
         Task<SignInResult> LoginAsync(LoginViewModel model);
 
         Task LogoutAsync();
-
+       
     }
 }

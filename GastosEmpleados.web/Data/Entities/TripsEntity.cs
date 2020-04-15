@@ -38,10 +38,10 @@ namespace GastosEmpleados.web.Data.Entities
         public string TotalAmount { get; set; }
 
 
-        public TripDetailsEntity Trips { get; set; }
+        public ICollection<TripDetailsEntity> TripDetails { get; set; }
 
 
         public UserEntity User { get; set; }
-        public EmployeesEntity Employees { get; set; }
+        
     }
 }

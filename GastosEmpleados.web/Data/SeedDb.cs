@@ -26,10 +26,10 @@ namespace GastosEmpleado.Web.Data
         {
             await _dataContext.Database.EnsureCreatedAsync();
             await CheckRoleAsync();
-            var Admin = await CheckUserAsync("98648886", "Hildebrando", "Montoya", "hilderbrand2007@hotmail.com", "3005337420", "Calle Luna", UserType.Admin);
-            var user1 = await CheckUserAsync("1018237330", "Juan Jose", "Montoya", "hilderbrand2007@hotmail.com", "3005337420", "Calle Luna", UserType.User);
-            var user2 = await CheckUserAsync("43927046", "Juan Jose", "Montoya", "hilderbrand2007@hotmail.com", "3005337420", "Calle Luna", UserType.User);
-            await CheckEmployeesAsync(user1, user2);
+            await CheckUserAsync("98648886", "Hildebrando", "Montoya", "hilderbrand2007@hotmail.com", "3005337420", "Calle Luna", UserType.Admin);
+            UserEntity employees1 = await CheckUserAsync ("1018237330", "Juan Jose", "Montoya", "hilderbrand2007@hotmail.com", "3005337420", "Calle Luna", UserType.User);
+            UserEntity employees2 = await CheckUserAsync ("43927046", "Juan Jose", "Montoya", "hilderbrand2007@hotmail.com", "3005337420", "Calle Luna", UserType.User);
+            await CheckEmployeesAsync(employees1, employees2);
         }
 
         private async Task<UserEntity> CheckUserAsync(
@@ -41,7 +41,7 @@ namespace GastosEmpleado.Web.Data
            string address,
            UserType userType)
         {
-            var user = await _userHelper.GetUserByEmailAsync(email);
+            UserEntity user = await _userHelper.GetUserByEmailAsync(email);
             if (user == null)
             {
                 user = new UserEntity
@@ -58,6 +58,8 @@ namespace GastosEmpleado.Web.Data
 
                 await _userHelper.AddUserAsync(user, "123456");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
+
+                
             }
 
             return user;
