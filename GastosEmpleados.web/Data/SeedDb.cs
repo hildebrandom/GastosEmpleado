@@ -53,7 +53,7 @@ namespace GastosEmpleado.Web.Data
                     PhoneNumber = phone,
                     Address = address,
                     Document = document,
-                    userType = userType
+                    User = userType
                 };
 
                 await _userHelper.AddUserAsync(user, "123456");

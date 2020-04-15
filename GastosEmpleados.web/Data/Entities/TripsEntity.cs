@@ -41,7 +41,6 @@ namespace GastosEmpleados.web.Data.Entities
         public TripDetailsEntity Trips { get; set; }
 
 
-        public ICollection<TripsEntity> TripDetails { get; set; }
         public UserEntity User { get; set; }
         public EmployeesEntity Employees { get; set; }
     }

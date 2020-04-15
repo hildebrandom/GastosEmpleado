@@ -32,8 +32,7 @@ namespace GastosEmpleados.web.Data.Entities
         [Display(Name = "Picture")]
         public string PicturePath { get; set; }
 
-        [Display(Name = "User Type")]
-        public UserType userType { get; set; }
+        public UserType User { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
 
@@ -41,6 +40,6 @@ namespace GastosEmpleados.web.Data.Entities
 
         public ICollection<EmployeesEntity> Trips { get; set; }
 
-        public ICollection<EmployeesEntity> Users { get; set; }
+        
     }
 }

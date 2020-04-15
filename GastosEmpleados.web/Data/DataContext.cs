@@ -12,6 +12,7 @@ namespace GastosEmpleados.web.Data
 
         }
 
+        public DbSet<UserEntity> User { get; set; }
         public DbSet<EmployeesEntity> Employees { get; set; }
         public DbSet<CitiesEntity> Cities { get; set; }
         public DbSet<CountriesEntity> Countries { get; set; }

@@ -27,8 +27,7 @@ namespace GastosEmpleados.web.Data.Entities
 
         public EmployeesEntity Viaje { get; set; }
 
-        public TripsEntity Trips { get; set; }
-
+        
         
     }
 
