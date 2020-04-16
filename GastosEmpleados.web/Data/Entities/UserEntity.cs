@@ -32,7 +32,7 @@ namespace GastosEmpleados.web.Data.Entities
         [Display(Name = "Picture")]
         public string PicturePath { get; set; }
 
-        public UserType User { get; set; }
+        public UserType UserType { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
 
