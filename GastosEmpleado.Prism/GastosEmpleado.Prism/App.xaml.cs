@@ -1,9 +1,9 @@
 ﻿using Prism;
 using Prism.Ioc;
 using GastosEmpleado.Prism.ViewModels;
-using GastosEmpleado.Prism.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GastosEmpleado.Prism.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace GastosEmpleado.Prism
@@ -23,13 +23,15 @@ namespace GastosEmpleado.Prism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/HomePage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<EmployeesMasterDetailPage, EmployeesMasterDetailPageViewModel>();
         }
     }
 }
