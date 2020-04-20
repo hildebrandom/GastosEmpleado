@@ -37,6 +37,8 @@ namespace GastosEmpleados.web.Data.Entities
 
         public string TotalAmount { get; set; }
 
+        public string Remarks { get; set; }
+
 
         public ICollection<TripDetailsEntity> TripDetails { get; set; }
 

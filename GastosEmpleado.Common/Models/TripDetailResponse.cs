@@ -12,7 +12,10 @@ namespace GastosEmpleado.Common.Models
 
         public DateTime DateLocal => Date.ToLocalTime();
 
-        
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
+
     }
 }
 

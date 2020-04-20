@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GastosEmpleado.Common.Models
@@ -14,7 +15,8 @@ namespace GastosEmpleado.Common.Models
 
         public UserResponse User { get; set; }
 
-                
+        public int? NumberOfTrips => Trips == null ? 0 :Trips.Count;
+
     }
 }
 

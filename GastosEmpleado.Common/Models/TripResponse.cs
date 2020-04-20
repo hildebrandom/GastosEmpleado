@@ -19,6 +19,7 @@ namespace GastosEmpleado.Common.Models
         public string Source { get; set; }
 
         public string Target { get; set; }
+        public string Remarks { get; set; }
 
 
         public string TotalAmount { get; set; }

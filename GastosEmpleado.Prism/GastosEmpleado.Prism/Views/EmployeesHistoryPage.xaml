@@ -2,8 +2,99 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="GastosEmpleado.Prism.Views.EmployeeHistoryPage"
+             x:Class="GastosEmpleado.Prism.Views.EmployeesHistoryPage"
              Title="{Binding Title}">
-  
+
+         <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="5">
+             <StackLayout Orientation="Horizontal">
+                <Label Text="Document"
+                   VerticalOptions="Center"/>
+                <Entry HorizontalOptions="FillAndExpand" 
+                   Placeholder="Enter Document..." 
+                   Text="{Binding Document}"
+                   VerticalOptions="Center"/>
+                <Button BackgroundColor="Navy"
+                    Command="{Binding CheckDocumentCommand}"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Margin="10,0"
+                    Text="Check Document"
+                    TextColor="White"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Number of trips:"/>
+                <Label Text="{Binding Employees.NumberOfTrips, StringFormat='{0:N0}'}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="User:"/>
+                <Label Text="{Binding Employees.User.FullName, StringFormat='{0:N0}'}"/>
+            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".8*" />
+                    <ColumnDefinition Width=".5*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="48" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"
+                   FontAttributes="Bold"
+                   Text="Start Date"/>
+                <Label Grid.Column="1"
+                   FontAttributes="Bold"
+                   Text="Value"/>
+                <Label Grid.Column="2"
+                   FontAttributes="Bold"
+                   Text="Remarks"/>
+            </Grid>
+
+            <CollectionView ItemsSource="{Binding Employees.Trips}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".8*" />
+                                <ColumnDefinition Width=".5*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                               Text="{Binding StartDateLocal, StringFormat='{0:yyyy/MM/dd HH:mm}'}"
+                               VerticalOptions="Center"/>
+
+                            <Label Grid.Column="2"
+                               Text="{Binding Remarks}"
+                               VerticalOptions="Center"/>
+                            <Image Grid.Column="3" 
+                               Source="ic_more_vert"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="Globe" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   BackgroundColor="Silver"
+                	                   HorizontalOptions="Center"
+                	                   TextColor="White"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   Title="Loading..."
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+
+    </AbsoluteLayout>
+    
 </ContentPage>

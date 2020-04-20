@@ -79,8 +79,6 @@ namespace GastosEmpleados.web.Controllers
             return View(employeesEntity);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id != null)

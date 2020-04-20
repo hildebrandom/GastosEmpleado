@@ -2,9 +2,9 @@
 
 namespace GastosEmpleado.Prism.Views
 {
-    public partial class EmployeeHistoryPage : ContentPage
+    public partial class EmployeesHistoryPage : ContentPage
     {
-        public EmployeeHistoryPage()
+        public EmployeesHistoryPage()
         {
             InitializeComponent();
         }

@@ -18,6 +18,7 @@
                 <input asp-for="Document" class="form-control" />
                 <span asp-validation-for="Document" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-success">Back to List</a>
@@ -26,7 +27,6 @@
     </div>
 </div>
 
-<div>
-    
-</div>
-
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

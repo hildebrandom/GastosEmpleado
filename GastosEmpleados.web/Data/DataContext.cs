@@ -19,7 +19,7 @@ namespace GastosEmpleados.web.Data
         public DbSet<TripsEntity> Trips { get; set; }
         public DbSet<TripDetailsEntity> TripDetails { get; set; }
         public DbSet<ExpenseTypeEntity> ExpenseTypes { get; set; }
-        
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
