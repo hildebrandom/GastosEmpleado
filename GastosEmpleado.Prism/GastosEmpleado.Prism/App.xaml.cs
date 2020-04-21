@@ -35,6 +35,7 @@ namespace GastosEmpleado.Prism
             containerRegistry.RegisterForNavigation<EmployeesHistoryPage, EmployeesHistoryPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
+            containerRegistry.RegisterForNavigation<TripDetailPage, TripDetailPageViewModel>();
         }
     }
 }

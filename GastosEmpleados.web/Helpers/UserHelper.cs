@@ -1,4 +1,5 @@
-﻿using GastosEmpleados.web.Data.Entities;
+﻿using GastosEmpleado.Common.Enums;
+using GastosEmpleados.web.Data.Entities;
 using GastosEmpleados.web.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
@@ -12,6 +13,33 @@ namespace GastosEmpleados.web.Helpers
         private readonly UserManager<UserEntity> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<UserEntity> _signInManager;
+
+        public async Task<UserEntity> AddUserAsync(AddUserViewModel model, string path)
+        {
+            UserEntity userEntity = new UserEntity
+            {
+                Address = model.Address,
+                Document = model.Document,
+                Email = model.Username,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                PicturePath = path,
+                PhoneNumber = model.PhoneNumber,
+                UserName = model.Username,
+                UserType = model.UserTypeId == 1 ? UserType.Admin : UserType.User
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(userEntity, model.Password);
+            if (result != IdentityResult.Success)
+            {
+                return null;
+            }
+
+            UserEntity newUser = await GetUserByEmailAsync(model.Username);
+            await AddUserToRoleAsync(newUser, userEntity.UserType.ToString());
+            return newUser;
+        }
+
 
         public UserHelper(
             UserManager<UserEntity> userManager,

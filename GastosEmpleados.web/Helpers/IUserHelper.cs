@@ -22,6 +22,8 @@ namespace GastosEmpleados.web.Helpers
         Task<SignInResult> LoginAsync(LoginViewModel model);
 
         Task LogoutAsync();
-       
+
+        Task<UserEntity> AddUserAsync(AddUserViewModel model, string path);
+
     }
 }

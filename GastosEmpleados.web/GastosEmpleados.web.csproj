@@ -14,4 +14,8 @@
     <ProjectReference Include="..\GastosEmpleado.Common\GastosEmpleado.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Receipts\" />
+  </ItemGroup>
+
 </Project>
