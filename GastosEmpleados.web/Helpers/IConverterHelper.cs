@@ -7,6 +7,7 @@ namespace GastosEmpleados.web.Helpers
     public interface IConverterHelper
     {
         EmployeesResponse ToEmployeesResponse(EmployeesEntity employeesEntity);
+        TripResponse ToTripResponse(TripsEntity tripsEntity);
     }
 }
 

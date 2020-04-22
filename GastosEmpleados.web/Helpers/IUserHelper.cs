@@ -1,6 +1,7 @@
 ﻿using GastosEmpleados.web.Data.Entities;
 using GastosEmpleados.web.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Threading.Tasks;
 
 
@@ -9,7 +10,8 @@ namespace GastosEmpleados.web.Helpers
 {
     public interface IUserHelper
     {
-        Task<UserEntity> GetUserByEmailAsync(string email);
+        Task<UserEntity> GetUserAsync(string email);
+        Task<UserEntity> GetUserAsync(Guid userId);
 
         Task<IdentityResult> AddUserAsync(UserEntity user, string password);
 
@@ -20,6 +22,7 @@ namespace GastosEmpleados.web.Helpers
         Task<bool> IsUserInRoleAsync(UserEntity user, string roleName);
 
         Task<SignInResult> LoginAsync(LoginViewModel model);
+        Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password);
 
         Task LogoutAsync();
 

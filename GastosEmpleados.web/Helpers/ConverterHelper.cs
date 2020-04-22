@@ -9,6 +9,26 @@ namespace GastosEmpleados.web.Helpers
 {
     public class ConverterHelper : IConverterHelper
     {
+        public TripResponse ToTripResponse(TripsEntity tripsEntity)
+        {
+            return new TripResponse
+            {
+                EndDate = tripsEntity.EndDate,
+                Id = tripsEntity.Id,
+                Remarks = tripsEntity.Remarks,
+                Source = tripsEntity.Source,
+                StartDate = tripsEntity.StartDate,
+                Target = tripsEntity.Target,
+                TripDetails = tripsEntity.TripDetails?.Select(td => new TripDetailResponse
+                {
+                    Date = td.Date,
+                    Id = td.Id,
+                }).ToList(),
+                User = ToUserResponse(tripsEntity.User)
+            };
+        }
+
+
         public EmployeesResponse ToEmployeesResponse(EmployeesEntity employeesEntity)
         {
             return new EmployeesResponse

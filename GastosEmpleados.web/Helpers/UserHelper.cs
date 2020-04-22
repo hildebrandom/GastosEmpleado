@@ -2,6 +2,7 @@
 using GastosEmpleados.web.Data.Entities;
 using GastosEmpleados.web.Models;
 using Microsoft.AspNetCore.Identity;
+using System;
 using System.Threading.Tasks;
 
 
@@ -13,6 +14,12 @@ namespace GastosEmpleados.web.Helpers
         private readonly UserManager<UserEntity> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<UserEntity> _signInManager;
+
+        public async Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password)
+        {
+            return await _signInManager.CheckPasswordSignInAsync(user, password, false);
+        }
+
 
         public async Task<UserEntity> AddUserAsync(AddUserViewModel model, string path)
         {
@@ -35,7 +42,7 @@ namespace GastosEmpleados.web.Helpers
                 return null;
             }
 
-            UserEntity newUser = await GetUserByEmailAsync(model.Username);
+            UserEntity newUser = await GetUserAsync(model.Username);
             await AddUserToRoleAsync(newUser, userEntity.UserType.ToString());
             return newUser;
         }
@@ -52,6 +59,12 @@ namespace GastosEmpleados.web.Helpers
             _roleManager = roleManager;
             _signInManager = signInManager;
         }
+
+        public async Task<UserEntity> GetUserAsync(Guid userId)
+        {
+            return await _userManager.FindByIdAsync(userId.ToString());
+        }
+
         public async Task<IdentityResult> AddUserAsync(UserEntity user, string password)
         {
             return await _userManager.CreateAsync(user, password);
@@ -78,7 +91,7 @@ namespace GastosEmpleados.web.Helpers
         }
                     
                
-        public async Task<UserEntity> GetUserByEmailAsync(string email)
+        public async Task<UserEntity> GetUserAsync(string email)
         {
             return await _userManager.FindByEmailAsync(email);
 
